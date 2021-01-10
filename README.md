@@ -20,6 +20,7 @@
 
 - 目录结构和代码规范
   1. 目录结构
+```
   |--node_modules
   |--public
   |--src
@@ -31,7 +32,8 @@
      |-- styles 全局样式文件
         _variables.scss (各种变量以及可配置设置)
         _minxins.scss (全局mixins)
-        _functions.scss (全局functions)        
+        _functions.scss (全局functions) 
+```       
 
   2. 代码规范
     create-react-app天生自带项目规范; .eslintrc中配置相关规则; 注意: 开启vscode编辑器 ESLint按钮
