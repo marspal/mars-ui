@@ -1,0 +1,34 @@
+.alert {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  font-family: $alert-font-family;
+  font-size: $alert-font-size;
+  font-weight: $alert-font-weight;
+  padding: $alert-padding-y $alert-padding-x;
+  border-radius: $alert-border-radius;
+  > .icon-close{
+    position: absolute;
+    top: $alert-padding-y;
+    right: $alert-padding-x;
+  }
+  > .alert-title {
+    font-weight: bolder;
+  }
+}
+
+.alert-info {
+  @include alert-style($primary, $primary, $white);
+}
+
+.alert-success {
+  @include alert-style($success, $success, $white);
+}
+
+.alert-danger {
+  @include alert-style($danger, $danger, $white);
+}
+
+.alert-warning{
+  @include alert-style($warning,$warning, $white);
+}
