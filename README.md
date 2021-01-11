@@ -40,9 +40,49 @@
     create-react-app天生自带项目规范; .eslintrc中配置相关规则; 注意: 开启vscode编辑器 ESLint按钮
 
 - [样式解决方案](https://reactjs.org/docs/faq-styling.html)
+
+> 方案:
   1. inlineStyle: class性能要比instyle好很多
-  2. CSS in JS: style Component, React 中立态度; 不建议使用
+  2. CSS in JS: 如 style Component; React 中立态度; 不建议使用
   3. Sass/Less: 推荐
+
+> 创建组件库的色彩体系
+  1. 系统色板 - 基础色板 + 中性色板 [色板](http://zhongguose.com/)
+  
+  ```scss
+  // 中性色彩; from white to black !default scss提供的, 用户定义后 不在赋值
+  $white:    #fff !default;
+  $gray-100: #f8f9fa !default;
+  $gray-200: #e9ecef !default;
+  $gray-300: #dee2e6 !default;
+  $gray-400: #ced4da !default;
+  $gray-500: #adb5bd !default;
+  $gray-600: #6c757d !default;
+  $gray-700: #495057 !default;
+  $gray-800: #343a40 !default;
+  $gray-900: #212529 !default;
+  $black:    #000 !default;
+
+  // 基础色板
+  $blue:    #0d6efd !default;
+  $indigo:  #6610f2 !default;
+  $purple:  #6f42c1 !default;
+  $pink:    #d63384 !default;
+  $red:     #dc3545 !default;
+  $orange:  #fd7e14 !default;
+  $yellow:  #fadb14 !default;
+  $green:   #52c41a !default;
+  $teal:    #20c997 !default;
+  $cyan:    #17a2b8 !default;
+
+  // 系统色板
+  $primary:       $blue !default;
+  $secondary:     $gray-600 !default;
+  ```
+
+
+  2. 产品色板 - primary + second
+
 
 - 组件需求和编码
 
