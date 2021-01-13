@@ -7,8 +7,8 @@
   通常可变的数据都有一个单一的数据流
 
 - 配置React开发环境
-  create-react-app 安装: npx create-react-app my-app
-  npx 作用: 会将node_modules/bin加入path变量; 结束后删除
+  create-react-app 安装: npx create-react-app my-app --typescript
+  **npx 作用**: 会将node_modules/bin加入path变量; 结束后删除
   1. 避免安装全局模块
   2. 调用内部安装模块 如: npx mocha --version
 
@@ -33,7 +33,8 @@
      |-- styles 全局样式文件
         _variables.scss (各种变量以及可配置设置)
         _minxins.scss (全局mixins)
-        _functions.scss (全局functions) 
+        _functions.scss (全局functions)
+        index.scss (样式入口文件)
 ```       
 
   2. 代码规范
@@ -50,7 +51,7 @@
   1. 系统色板 - 基础色板 + 中性色板 [色板](http://zhongguose.com/)
   
   ```scss
-  // 中性色彩; from white to black !default scss提供的, 用户定义后 不在赋值
+  // 中性色板; from white to black !default scss提供的, 用户定义后 不在赋值
   $white:    #fff !default;
   $gray-100: #f8f9fa !default;
   $gray-200: #e9ecef !default;
@@ -78,11 +79,38 @@
   // 系统色板
   $primary:       $blue !default;
   $secondary:     $gray-600 !default;
+
+  // 功能色
+
+  // 字体系统
+
+  // 链接
+
+  // 表单
+
+  // 按钮
+
+  // 边框和阴影
+
+  // 可配置开关
+
   ```
 
+  2. 产品色板 - primary + secondery
+  ```scss
+    $success:       $green !default;
+    $info:          $cyan !default;
+    $warning:       $yellow !default;
+    $danger:        $red !default;
+    $light:         $gray-100 !default;
+    $dark:          $gray-800 !default;
+  ```
 
-  2. 产品色板 - primary + second
+  3. normalize.css: 解决不同浏览器兼容问题
 
+  4. scss入口文件
+  
+  注意: _ 称为partials 告诉scss不要编译到css文件; 只能被导入
 
 - 组件需求和编码
 
