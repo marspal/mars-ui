@@ -41,6 +41,7 @@ export const Button: FC<ButtonProps> = (props: ButtonProps) => {
   const classes = classnames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
+    // 连接本身没有disabled属性
     disabled: (btnType === 'link') && disabled // 有href的时候显示
   });
   if(btnType === 'link' && href){

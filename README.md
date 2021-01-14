@@ -47,8 +47,8 @@
   2. CSS in JS: 如 style Component; React 中立态度; 不建议使用
   3. Sass/Less: 推荐
 
-> 创建组件库的色彩体系
-  1. 系统色板 - 基础色板 + 中性色板 [色板](http://zhongguose.com/)
+> Q: 如何创建组件库的色彩体系
+  1. 创建系统色板 - 基础色板 + 中性色板 [色板](http://zhongguose.com/)
   
   ```scss
   // 中性色板; from white to black !default scss提供的, 用户定义后 不在赋值
@@ -106,16 +106,32 @@
     $dark:          $gray-800 !default;
   ```
 
-  3. normalize.css: 解决不同浏览器兼容问题
+  3. 引入normalize.css: 解决不同浏览器兼容问题
 
-  4. scss入口文件
+  4. 需要导出scss入口文件
   
   注意: _ 称为partials 告诉scss不要编译到css文件; 只能被导入
 
 - 组件需求和编码
 
+  1. 开发第一个组件 Button组件
+
+  第一步: 明确需求Button Type、Button Size、Disabled状态
+
 - 组件测试用例分析和编码
+
+> Q: 如何搭建组件测试架构
+
+
+> Q: 如何编写测试用例
+
+
 
 - 代码打包输出和发布
 
 - CI/CD, 文档生成等等
+
+
+### 易错知识点
+
+1. a 标签没有disabled? 加上disabled属性模拟实现
