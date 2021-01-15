@@ -1,5 +1,5 @@
 // 全局 mixin 主要解决代码重用的问题
-@mixin  button-size($padding-x,  $padding-y, $font-size, $border-radius) {
+@mixin button-size($padding-x,  $padding-y, $font-size, $border-radius) {
   padding: $padding-y $padding-x;
   font-size: $font-size;
   border-radius: $border-radius;

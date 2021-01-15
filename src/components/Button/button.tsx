@@ -16,6 +16,7 @@ interface BaseButtonProps {
   /**BtnType为Link时且href存在时为A */
   href?: string;
 }
+// &交叉类型
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>;
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 // Partial 设置可选
@@ -41,7 +42,7 @@ export const Button: FC<ButtonProps> = (props: ButtonProps) => {
   const classes = classnames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
-    // 连接本身没有disabled属性
+    // 链接本身没有disabled属性
     disabled: (btnType === 'link') && disabled // 有href的时候显示
   });
   if(btnType === 'link' && href){

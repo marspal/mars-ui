@@ -25,12 +25,12 @@
   |--node_modules
   |--public
   |--src
-     |-- components
+      |-- components
          |--Button
             |--button.tsx
             |--button.test.tsx
             |--style.scss 组件单独样式
-     |-- styles 全局样式文件
+      |-- styles 全局样式文件
         _variables.scss (各种变量以及可配置设置)
         _minxins.scss (全局mixins)
         _functions.scss (全局functions)
@@ -114,9 +114,13 @@
 
 - 组件需求和编码
 
-  1. 开发第一个组件 Button组件
+> Q: 如何开发第一个组件Button组件?
 
-  第一步: 明确需求Button Type、Button Size、Disabled状态
+  1: 明确需求，确定Button Type、Button Size、Disabled状态; 编写JS组件
+  2: 写入组件样式 按钮的大小由padding、font-size、border-radius控制; 颜色由
+    border-color、background、color控制
+  3: mixin解决重复代码问题
+  4: 原生属性支持ButtonHTMLAttributes<HTMLElement>获取所有的btn原生属性
 
 - 组件测试用例分析和编码
 
@@ -135,3 +139,8 @@
 ### 易错知识点
 
 1. a 标签没有disabled? 加上disabled属性模拟实现
+
+
+> TS 常用的知识点
+
+Partial<T> : 属性可选
