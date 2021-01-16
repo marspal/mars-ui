@@ -11,7 +11,7 @@ const primaryProps: ButtonProps = {
   className: 'klass'
 }
 const disabledProps: ButtonProps = {
-  disabled: true,
+  disabled: true, 
   onClick: jest.fn()
 }
 describe("Test Button Component", () => {
@@ -23,7 +23,7 @@ describe("Test Button Component", () => {
     expect(element).toHaveClass("btn btn-default");
     expect(element.disabled).toBeFalsy();
     fireEvent.click(element);
-    expect(defaultProps.onClick).toHaveBeenCalled()
+    expect(defaultProps.onClick).toHaveBeenCalledTimes(1);
   });
   it("should render the correct button based on different", () => {
     const wrapper = render(<Button {...primaryProps}>Nice</Button>);
@@ -31,7 +31,7 @@ describe("Test Button Component", () => {
     expect(element).toBeInTheDocument();
     expect(element).toHaveClass("btn btn-primary btn-lg klass");
   });
-  it("should render a link when btnType equals link and href is provided", () => {
+   it("should render a link when btnType equals link and href is provided", () => {
     const wrapper = render(<Button btnType="link" href="http://dummyurl">Link</Button>);
     const element = wrapper.getByText('Link');
     expect(element).toBeInTheDocument();

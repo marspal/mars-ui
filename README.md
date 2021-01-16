@@ -22,6 +22,7 @@
 
   1. 目录结构
 ```
+  |--.storybook storybook相关配置 
   |--node_modules
   |--public
   |--src
@@ -124,7 +125,34 @@
 
 - 组件测试用例分析和编码
 
+> Q: 为什么要有测试
+  
+  有测试对代码升级叫重构;没测试代码升级叫重写;
+
+  作用:
+  1. 高质量的代码
+  2. 更早的发现bug,减少成本
+  3. 让重构和升级更加容易和升级
+  4. 让开发流程更加敏捷
+```flow
+  st=>start: Start
+  op=>operation: Unit
+  op=>operation: Service
+  op=>operation: Service
+  e=>end: End
+```
+  React组件类型更加合适写单元测试
+  1. Component - 组件
+  2. Function - 函数
+  3. 单项数据流
 > Q: 如何搭建组件测试架构
+  
+  1. Jest框架 
+  2. React Testing Library
+  3. jest-dom: 新增DOM断言 
+对JEST matchers 进行扩展import '@testing-library/jest-dom/extend-expect';
+
+  使用如上三个库,搭建结束项目测试框架
 
 
 > Q: 如何编写测试用例
@@ -135,6 +163,30 @@
 
 - CI/CD, 文档生成等等
 
+> storybook 解决本地调试和文档页面生成利器
+
+**CRA缺点:**
+
+1. CRA 入口文件不合适管理组件库
+2. 缺少行为追踪和属性
+
+>Q: 完美的组件应具有什么特点?
+
+1. 具有分开展示各个组件不同属性下的状态
+2. 具有能追踪组件行为并具有属性调试功能
+3. 具有为组件自动生成生成文档和属性列表
+
+storybook完美解决上述问题
+
+> storybook 安装使用
+
+1. npm run storybook
+
+Q: storybook支持typescript
+
+在.storybook添加相关配置;
+在每一个组件中加入自己的story文件button.stories.tsx
+react-docgen: 处理注释显示 显示出来
 
 ### 易错知识点
 
