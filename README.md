@@ -180,7 +180,7 @@ storybook完美解决上述问题
 
 > storybook 安装使用
 
-1. npm run storybook
+1. npm run @storybook/react
 
 Q: storybook支持typescript
 
@@ -188,6 +188,8 @@ Q: storybook支持typescript
 在每一个组件中加入自己的story文件button.stories.tsx
 react-docgen: 处理注释显示 显示出来
 
+2. 安装addons 
+cnpm i @storybook/addon-actions @storybook/addon-links @storybook/addon-essentials -D
 ### 易错知识点
 
 1. a 标签没有disabled? 加上disabled属性模拟实现

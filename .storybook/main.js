@@ -1,48 +1,16 @@
 module.exports = {
-  stories: ['../src/**/*.stories.tsx'],
-  addons: [
-    '@storybook/addon-docs',
-    '@storybook/preset-create-react-app',
-    '@storybook/addon-actions',
-    '@storybook/addon-links',
-    '@storybook/addon-storysource',
+  "stories": [
+    "../src/**/*.stories.@(js|jsx|ts|tsx)"
   ],
-  webpackFinal: async config => {
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials"
+  ],
+  "webpackFinal": async (config, { configType }) => {
     config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      use: [
-        {
-          loader: require.resolve('babel-loader'),
-          options: {
-            // babel转换过程中一系列规则
-            presets: [require.resolve("babel-preset-react-app")],
-          },
-        },
-        // Optional
-        {
-          loader: require.resolve('react-docgen-typescript-loader'),
-          options: {
-            shouldExtractLiteralValuesFromEnum: true,
-            propFilter: (prop) => {
-              if (prop.parent) {
-                return !prop.parent.fileName.includes('node_modules')
-              }
-              return true
-            }
-          }
-        }
-      ],
-    });
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      loaders: [
-        {
-          loader: require.resolve('@storybook/source-loader'),
-          options: { parser: 'typescript' },
-        }
-      ],
-      enforce: 'pre'
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader']
     });
     return config;
-  }
-};
+  },
+}
