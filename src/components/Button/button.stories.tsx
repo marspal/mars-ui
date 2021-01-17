@@ -6,7 +6,7 @@ import Button from './button';
 
 export default {
   component: Button,
-  title: "Button 组件"
+  title: "Button"
 }
 // CSF 模式下不能使用中文名
 export const basic = () => <Button onClick={action("clicked")}>basic</Button>

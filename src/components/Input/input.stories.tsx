@@ -17,5 +17,5 @@ const defaultInput = () => {
   </>
 }
 
-storiesOf("Input component", module)
+storiesOf("Input", module)
   .add("Input", defaultInput);

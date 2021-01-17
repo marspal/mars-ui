@@ -30,6 +30,6 @@ export const iconWithTheme = () => {
   );
 }
 
-storiesOf("Icon Component", module)
+storiesOf("Icon", module)
   .add("basic", basic)
   .add("iconWithTheme", iconWithTheme);
