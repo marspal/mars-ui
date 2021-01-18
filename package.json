@@ -66,6 +66,7 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.1.14",
+    "@storybook/addon-docs": "^6.1.14",
     "@storybook/addon-essentials": "^6.1.14",
     "@storybook/addon-links": "^6.1.14",
     "@storybook/react": "^6.1.14",
@@ -87,6 +88,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "^3.4.1",
     "rimraf": "^3.0.2",
+    "storybook-addon-designs": "^5.4.3",
     "typescript": "^3.8.3"
   }
 }

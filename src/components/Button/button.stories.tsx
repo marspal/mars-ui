@@ -1,27 +1,41 @@
 import React from 'react';
-import { action } from '@storybook/addon-actions';
-
+import { Story, Meta } from '@storybook/react/types-6-0';
+// import { withDesign } from 'storybook-addon-designs'
 // 解决样式问题
-import Button from './button';
+import {Button, ButtonProps} from './button';
 
 export default {
+  title: "Button",
   component: Button,
-  title: "Button"
-}
-// CSF 模式下不能使用中文名
-export const basic = () => <Button onClick={action("clicked")}>basic</Button>
-export const size  = () => (
-  <>
-    <Button size="lg">large Button</Button>&nbsp;&nbsp;
-    <Button size="sm">small Button</Button>
-  </>
-);
+} as Meta;
 
-export const type = () => (
-  <>
-    <Button btnType="primary">primary</Button>&nbsp;&nbsp;
-    <Button btnType="danger">danger</Button>&nbsp;&nbsp;
-    <Button btnType="default">default</Button>&nbsp;&nbsp;
-    <Button btnType="link" href="https://www.baidu.com" target="_blank">link</Button>
-  </>
-);
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  btnType: 'primary',
+  children: 'button'
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  children: 'Button',
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  children: 'Button',
+  size: 'lg'
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  children: 'Button',
+  size: 'sm'
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+  children: 'Button',
+  btnType: 'danger'
+};
