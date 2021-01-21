@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, useState } from 'react';
+import React, { FC, HTMLAttributes, useCallback, useState } from 'react';
 import classnames from 'classnames';
 import Icon from '../Icon';
 import Transition from "../Transition/transition";
@@ -14,11 +14,11 @@ interface AlertProps extends HTMLAttributes<HTMLElement>{
 
 export const Alert: FC<AlertProps> = (props) => {
   const {
-    className,
     type,
     title,
     message,
     showClose,
+    className,
     ...restProps
   } = props;
   const [close, setClose] = useState(true);
@@ -26,9 +26,10 @@ export const Alert: FC<AlertProps> = (props) => {
   const classes = classnames("alert", className, {
     [`alert-${type}`]: type
   });
-  const handleClose = () => {
+  // todo 升级成useMome形式
+  const handleCloseCallback = useCallback(() => {
     setClose(false);
-  }
+  }, []);
   return (
     <Transition in={close} animation="zoom-in-top" timeout={300}>
       <div className={classes} {...restProps} data-testid="alert-test">
@@ -36,7 +37,7 @@ export const Alert: FC<AlertProps> = (props) => {
         <span>{message}</span>
         {showClose && 
           <span className="icon-close" >
-            <Icon icon="times" onClick={handleClose}/>
+            <Icon icon="times" onClick={handleCloseCallback}/>
           </span>
         }
       </div>

@@ -1,5 +1,11 @@
 ## React UI Component
 
+### 组件库使用
+- todo 1.22
+  修改组件库名字
+  继续开发Menu组件
+
+
 ### 基础知识
 
 - 状态提升 or 单项数据流
@@ -118,10 +124,25 @@
 > Q: 如何开发第一个组件Button组件?
 
   1: 明确需求，确定Button Type、Button Size、Disabled状态; 编写JS组件
-  2: 写入组件样式 按钮的大小由padding、font-size、border-radius控制; 颜色由
-    border-color、background、color控制
+  2: 写入组件样式 按钮的大小由padding、font-size、border-radius控制; 
+  颜色由border-color、background、color控制
   3: mixin解决重复代码问题
   4: 原生属性支持ButtonHTMLAttributes<HTMLElement>获取所有的btn原生属性
+
+> Q: 如何开发Menu组件
+  1. 需求分析
+    基本样式 - 横向、纵向
+    item: 支持active、disabled、切换tab、下拉框
+  2. 方案:要让组件更加语义化、更加像HTML的解决方案; 
+  ```jsx
+    <Menu>
+      <Menu.Item>12</Menu.Item>
+      <Menu.Item>13</Menu.Item>
+    </Menu>
+  ```
+  3. 属性分析
+    MenuProps
+    MenuItemProps
 
 - 组件测试用例分析和编码
 

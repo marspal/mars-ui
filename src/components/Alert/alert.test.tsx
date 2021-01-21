@@ -1,20 +1,16 @@
 import React from 'react';
 import { config } from 'react-transition-group';
-import {render, fireEvent} from '@testing-library/react';
+import {render} from '@testing-library/react';
+import useEvent from '@testing-library/user-event';
 import Alert, {AlertType} from './alert';
+
 config.disabled = true;
 jest.mock('../Icon', () => {
   return ({icon, onClick}: any) => {
     return <span onClick={onClick}>{icon}</span>
   }
-})
-// jest.mock("react-transition-group", () => {
-//   return {
-//     CSSTransition: (props: any) => {
-//       return props.children
-//     } 
-//   }
-// });
+});
+
 const defaultProps = {
   message: 'this is default'
 }
@@ -24,7 +20,8 @@ const otherProps = {
   showClose: true,
   title: 'Test Title',
   type: 'success' as AlertType,
-  className: 'aacss'
+  className: 'aacss',
+  onClick: jest.fn()
 }
 describe("Test Alert Component", () => {
   it("should render correct default component ", () => {
@@ -44,7 +41,8 @@ describe("Test Alert Component", () => {
     expect(messageElement).toBeInTheDocument();
     const closeElement = wrapper.getByText("times");
     expect(closeElement).toBeInTheDocument();
-    fireEvent.click(closeElement);
+    useEvent.click(closeElement);
+    expect(otherProps.onClick).toHaveBeenCalled();
     expect(element).not.toBeInTheDocument()
   });
 });

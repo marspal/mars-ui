@@ -23,11 +23,8 @@ type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 /**
  * Button组件库
- * ##### 引用方法
- * ~~~js
- *  import {Button} from 'sparksharing'
- * ~~~
- */
+ * import {Button} from 'sparksharing'
+*/
 export const Button: FC<ButtonProps> = (props: ButtonProps) => {
   const {
     className,

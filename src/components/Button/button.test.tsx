@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Button, { ButtonProps } from "./button";
 const defaultProps = {
   onClick: jest.fn()
@@ -22,7 +23,7 @@ describe("Test Button Component", () => {
     expect(element.tagName).toEqual("BUTTON");
     expect(element).toHaveClass("btn btn-default");
     expect(element.disabled).toBeFalsy();
-    fireEvent.click(element);
+    userEvent.click(element);
     expect(defaultProps.onClick).toHaveBeenCalledTimes(1);
   });
   it("should render the correct button based on different", () => {
@@ -44,7 +45,7 @@ describe("Test Button Component", () => {
     const element = wrapper.getByText("Disabled") as HTMLButtonElement;
     expect(element).toBeInTheDocument();
     expect(element.disabled).toBeTruthy()
-    fireEvent.click(element);
+    userEvent.click(element);
     expect(disabledProps.onClick).not.toHaveBeenCalled();
   });
 });
