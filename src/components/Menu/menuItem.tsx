@@ -17,8 +17,7 @@ export const MenuItem: React.FC<MenuItemProps> = (props) => {
     "is-active": index === context.index
   });
   const handleClick = () => {
-    // 解决index不纯在
-    if(context.onSelect && !disabled &&(typeof index === 'string')){
+    if(context.onSelect && !disabled){
       context.onSelect(index)
     }
   }

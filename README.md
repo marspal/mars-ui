@@ -3,7 +3,7 @@
 ### 使用方法
 
 ```js
-  npm install MarsUI
+  npm install mars-ui-pro
 ```
 
 ### 开发贡献
