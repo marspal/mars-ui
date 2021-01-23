@@ -1,19 +1,22 @@
 import React from 'react';
-import Icon from './icon';
-import { storiesOf } from '@storybook/react';
+import {Story, Meta} from '@storybook/react';
+import Icon, {IIconProps} from './icon';
 
-// export default {
-//   component: Icon,
-//   title: 'Icon Component'
-// }
+export default {
+  title: 'Icon',
+  component: Icon
+} as Meta;
 
-export const basic = () => {
-  return (
-    <>
-      <Icon icon="coffee"/>
-    </>
-  );
+const Template: Story<IIconProps> = (args) => {
+  return <Icon {...args} />
 }
+
+export const Success = Template.bind({});
+Success.args = {
+  theme: 'success',
+  icon: 'coffee'
+};
+
 
 export const iconWithTheme = () => {
   return (
@@ -29,7 +32,3 @@ export const iconWithTheme = () => {
     </>
   );
 }
-
-storiesOf("Icon", module)
-  .add("basic", basic)
-  .add("iconWithTheme", iconWithTheme);

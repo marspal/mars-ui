@@ -1,16 +1,11 @@
-import React from 'react'
-import { storiesOf } from '@storybook/react'
-import { action } from '@storybook/addon-actions'
+import React from 'react';
+import { Story, Meta } from '@storybook/react';
 import Menu, { IMenuProps } from './menu';
 import MenuItem from './menuItem';
 import SubMenu from './subMenu';
 
-const generateMenu = () => {
-  const testProps: IMenuProps = {
-    defaultIndex: '0',
-    className: 'test'
-  }
-  return<Menu {...testProps}>
+const generateMenu = (args: IMenuProps) => {
+  return<Menu {...args}>
     <MenuItem>
       active
     </MenuItem>
@@ -31,6 +26,23 @@ const generateMenu = () => {
   </Menu>
 } 
 
+export default {
+  title: "Menu",
+  component: Menu
+} as Meta;
 
-storiesOf('Menu Component', module)
-.add('Menu', generateMenu )
+
+const Template: Story<IMenuProps> = (args) => generateMenu(args);
+export const VerticalMode = Template.bind({});
+VerticalMode.args = {
+  defaultIndex: '0',
+  className: 'test',
+  mode: "vertical"
+}
+
+export const HorizontalMode = Template.bind({});
+HorizontalMode.args = {
+  defaultIndex: '0',
+  className: 'test',
+  mode: 'horizontal'
+};

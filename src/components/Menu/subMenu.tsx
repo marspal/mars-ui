@@ -15,15 +15,17 @@ export const SubMenu: React.FC<ISubMenuProps> = ({className, children, title, in
   // 做类型断言 使用对应的方法
   const openedSubMenu = context.defaultOpenSubMenus as Array<string>;
   const isOpened = (index && context.mode === "vertical") ? openedSubMenu.includes(index): false
-  // const [menuOpen, setOpen] = useState(false);
   const [menuOpen, setOpen] = useState(isOpened);
   const classes = classnames("menu-item submenu-item", className, {
-    'is-active': context.index === index,
+    'is-active': index ? context.index?.includes(index) : false,
     'is-opened': menuOpen,
     'is-vertical': context.mode === 'vertical'
   });
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
+    if(context.onSelect && typeof index === 'string'){
+      context.onSelect(index)
+    }
     setOpen(!menuOpen);
   }
   let timer: any;
@@ -61,8 +63,8 @@ export const SubMenu: React.FC<ISubMenuProps> = ({className, children, title, in
     return (
       <Transition
         in={menuOpen}
-        timeout={300}
-        animation="zoom-in-right"
+        timeout={200}
+        animation="zoom-in-top"
       >
         <ul className={subMenuClasses}>
           {childrenComponent}
@@ -74,7 +76,7 @@ export const SubMenu: React.FC<ISubMenuProps> = ({className, children, title, in
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}>
         {title}
-        <Icon icon="angle-down" className="arrow-icon"></Icon>
+        <Icon icon="angle-down" className="arrow-icon" />
       </div>
       {renderChildren()}
     </li>

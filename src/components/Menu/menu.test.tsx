@@ -5,6 +5,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import Menu, {IMenuProps} from './menu'
 import MenuItem from './menuItem';
 import SubMenu from './subMenu';
+
+
 library.add(fas)
 jest.mock('../Icon/icon', () => {
   return () => {
@@ -18,13 +20,13 @@ jest.mock("react-transition-group", () => {
     } 
   }
 });
-const testProps: IMenuProps = {
+const defaultProps: IMenuProps = {
   defaultIndex: '0',
   onSelect: jest.fn(),
   className: 'test'
 }
 
-const testVerProps:IMenuProps = {
+const defaultVerProps:IMenuProps = {
   defaultIndex: '0',
   mode: 'vertical',
   defaultOpenSubMenus: ['4']
@@ -50,7 +52,8 @@ const generateMenu = (props: IMenuProps) => {
       </MenuItem>
     </SubMenu>
   </Menu>
-} 
+}
+// 解决submenu css不存在的问题
 const createStyleFile = ()=>{
   const cssFile: string = `
     .submenu {
@@ -61,15 +64,14 @@ const createStyleFile = ()=>{
     }
   `;
   const style = document.createElement("style");
-  style.type = "text/css";
   style.innerHTML = cssFile;
   return style;
 }
 let wrapper: RenderResult, wrapper2: RenderResult, menuElement: HTMLElement, activeElement: HTMLElement, disabledElement: HTMLElement;
-describe("test menu and MenuItem component", () => {
+describe("Menu and MenuItem Test", () => {
   // 解决多个case重复创建元素
   beforeEach(()=>{
-    wrapper = render(generateMenu(testProps));
+    wrapper = render(generateMenu(defaultProps));
     // 插入节点
     wrapper.container.append(createStyleFile())
     // 取出最外层元素
@@ -86,19 +88,19 @@ describe("test menu and MenuItem component", () => {
     expect(activeElement).toHaveClass("menu-item is-active");
     expect(disabledElement).toHaveClass("menu-item is-disabled");
   })
-  it("click items should change active and call the rigth callback", ()=>{
+  it("click items should change active and call the right callback", ()=>{
     const thirdItem = wrapper.getByText("xyz");
     fireEvent.click(thirdItem);
     expect(thirdItem).toHaveClass("is-active");
     expect(activeElement).not.toHaveClass("is-active");
-    expect(testProps.onSelect).toHaveBeenCalledWith('2');
+    expect(defaultProps.onSelect).toHaveBeenCalledWith('2');
     fireEvent.click(disabledElement);
     expect(disabledElement).not.toHaveClass('is-active');
-    expect(testProps.onSelect).not.toHaveBeenCalledWith('1');
+    expect(defaultProps.onSelect).not.toHaveBeenCalledWith('1');
   })
   it("should render vertical mode when mode is set to vertical", ()=>{
     cleanup();
-    const wrapper = render(generateMenu(testVerProps));
+    const wrapper = render(generateMenu(defaultVerProps));
     menuElement = wrapper.getByTestId("test-menu");
     // 出现错误 Found multiple elements by: [data-testid="test-menu"]
     // 解决办法cleanup
@@ -115,7 +117,7 @@ describe("test menu and MenuItem component", () => {
       expect(wrapper.queryByText("drop1")).toBeVisible();
     });
     fireEvent.click(wrapper.getByText("drop1"));
-    expect(testProps.onSelect).toBeCalledWith('3-0');
+    expect(defaultProps.onSelect).toBeCalledWith('3-0');
     fireEvent.mouseLeave(dropdownElement)
     await wait(()=>{
       expect(wrapper.queryByText("drop1")).not.toBeVisible();
@@ -125,7 +127,7 @@ describe("test menu and MenuItem component", () => {
 
 describe("test Menu and MenuItem in vertical mode", () => {
   beforeEach(()=>{
-    wrapper2 =  render(generateMenu(testVerProps));
+    wrapper2 =  render(generateMenu(defaultVerProps));
     wrapper2.container.append(createStyleFile());
   });
   it("should render vertical mode when mode is set to vertical", () => {
