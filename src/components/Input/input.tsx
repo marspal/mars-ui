@@ -1,22 +1,23 @@
-import React, { FC, ReactElement, InputHTMLAttributes, ChangeEvent } from 'react';
+import React, {FC, ReactElement, InputHTMLAttributes, ChangeEvent} from 'react';
 // 必要时 具备找IconProp定义地方
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import {IconProp} from '@fortawesome/fontawesome-svg-core';
 import classNames from 'classnames'
 import Icon from '../Icon/icon';
 
 type InputSize = 'lg' | 'sm'
 
 // 忽略掉size属性
-export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'>{
+export interface IInputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'>{
   disabled?: boolean,
   size?: InputSize,
   icon?: IconProp,
   prepend?: string | ReactElement,
   append?: string | ReactElement,
+  // 新增类型断言
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input: FC<InputProps> = (props) => {
+const Input: FC<IInputProps> = (props) => {
   // 取出所有的属性
   const {
     disabled,

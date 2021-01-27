@@ -5,8 +5,6 @@ const defaultProps = {
   placeholder: "test-input"
 };
 
-
-
 describe("test Input Component", () => {
   it("should render the correct default Input", () => {
     const wrapper = render(<Input {...defaultProps}/>);
