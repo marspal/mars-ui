@@ -7,7 +7,7 @@ import Icon from '../Icon/icon';
 type InputSize = 'lg' | 'sm'
 
 // 忽略掉size属性
-export interface IInputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'>{
+export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'>{
   disabled?: boolean,
   size?: InputSize,
   icon?: IconProp,
@@ -17,7 +17,7 @@ export interface IInputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'siz
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input: FC<IInputProps> = (props) => {
+const Input: FC<InputProps> = (props) => {
   // 取出所有的属性
   const {
     disabled,
@@ -44,6 +44,7 @@ const Input: FC<IInputProps> = (props) => {
     }
     return value;
   }
+  // 受控组件和非受控组件的区别
   // value defaultValue 不能同时存在, 有value 则去掉defaultValue
   if('value' in restProps){
     delete restProps.defaultValue;

@@ -1,6 +1,6 @@
 import React, { useState } from  'react';
 import {Story} from '@storybook/react';
-import Input, {IInputProps} from './input';
+import Input, {InputProps} from './input';
 
 const ControlledInput = ()=> {
   const [value, setValue] = useState<any>('123123');
@@ -12,7 +12,7 @@ export default {
   component: Input
 };
 
-const Template: Story<IInputProps> = (args) => <Input {...args} />;
+const Template: Story<InputProps> = (args) => <Input {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
