@@ -12,6 +12,7 @@ export const Dragger: FC<DraggerProps> = (props) => {
   const classes = classNames("uploader-dragger", {
     'is-dragover': dragOver
   });
+  // DragEvent为React自带事件
   const handleDrop = (e: DragEvent<HTMLElement>) => {
     e.preventDefault();
     setDragOver(false);

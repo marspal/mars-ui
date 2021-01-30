@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "module": "esnext", // 标准的es6 模块的形式
-    "target": "es5", // 目标版本
+    "outDir": "dist", // 放在什么地方
+    "module": "esnext", // 输出类型 标准的es6 模块的形式
+    "target": "es5", // es版本 目标版本
     "declaration": true, // With a corresponding .d.ts:
     "jsx": "react", // equivalent React.createElement 
-    "moduleResolution": "Node", // 解决吗，模块引用问题
+    "moduleResolution": "Node", // 解决模块引用问题
     "allowSyntheticDefaultImports": true, // 解决import react 的问题
   },
-  "include": [
+  "include": [ // 编译那些文件
     "src"
   ],
   "exclude": [

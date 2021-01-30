@@ -10,6 +10,7 @@ interface DataSourceObject{
   value: string
 }
 
+// 使用的是什么类型 就传什么类型
 export type DataSourceType<T = {}> = T & DataSourceObject;
 
 export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {
@@ -126,7 +127,7 @@ export const AutoComplete: FC<AutoCompleteProps>  = (props) => {
         onKeyDown={handleKeyDown}
         {...restProps}
       />
-      {loading && <ul><Icon icon="spinner"spin/></ul>}
+      {loading && <ul><Icon icon="spinner" spin /></ul>}
       {suggestions && generateDropDown()}
     </div>
   );
