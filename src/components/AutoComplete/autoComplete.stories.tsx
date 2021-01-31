@@ -5,10 +5,10 @@ import { action } from '@storybook/addon-actions';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 library.add(fas);
-interface LakerPlayerProps {
-  value: string,
-  number: number
-}
+// interface LakerPlayerProps {
+//   value: string,
+//   number: number
+// }
 
 interface GitHubUserProps {
   login: string;
@@ -16,15 +16,15 @@ interface GitHubUserProps {
   avatar_url: string;
 }
 const SimpleComplete = () => {
-  const lakers = ['bradley', 'pope', 'cook', 'cousins', 'james',
-  'AD', 'green', 'howard', 'kuzma'];
-  const lakerWithNumber = [{
-    value: "bradley",
-    number: 11,
-  },{
-    value: "James",
-    number: 23,
-  }]
+  // const lakers = ['bradley', 'pope', 'cook', 'cousins', 'james',
+  // 'AD', 'green', 'howard', 'kuzma'];
+  // const lakerWithNumber = [{
+  //   value: "bradley",
+  //   number: 11,
+  // },{
+  //   value: "James",
+  //   number: 23,
+  // }]
   // const handleFetch = (query: string) => {
   //   return lakers.filter(name => name.includes(query)).map(name => ({value: name}));
   // }
@@ -51,14 +51,14 @@ const SimpleComplete = () => {
               return formatItems;
             });
   }
-  const renderOptions = (item: DataSourceType<GitHubUserProps>) => {
-    return (
-    <>
-      <h2>Name: {item.login}</h2>
-      <p>Number：{item.url}</p>
-    </>
-    )
-  }
+  // const renderOptions = (item: DataSourceType<GitHubUserProps>) => {
+  //   return (
+  //   <>
+  //     <h2>Name: {item.login}</h2>
+  //     <p>Number：{item.url}</p>
+  //   </>
+  //   )
+  // }
   return <AutoComplete 
     fetchSuggestions={handleFetch}
     onSelect={action("selected")}

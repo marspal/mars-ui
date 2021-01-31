@@ -12,12 +12,12 @@ const WelcomeTemp = () => (
   </>
 );
 
-export default {
-  title: 'Welcome',
-  component: WelcomeTemp
-};
-
 const Template: Story<any> = () => <WelcomeTemp />;
 
 export const Welcome = Template.bind({});
 Welcome.args = {};
+
+export default {
+  title: 'Welcome',
+  component: WelcomeTemp
+};

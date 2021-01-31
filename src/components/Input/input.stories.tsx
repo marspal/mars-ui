@@ -1,11 +1,11 @@
-import React, { useState } from  'react';
+import React from  'react';
 import {Story} from '@storybook/react';
 import Input, {InputProps} from './input';
 
-const ControlledInput = ()=> {
-  const [value, setValue] = useState<any>('123123');
-  return <Input defaultValue={value} onChange={(e) => setValue(e.target.value)}/>
-}
+// const ControlledInput = ()=> {
+//   const [value, setValue] = useState<any>('123123');
+//   return <Input defaultValue={value} onChange={(e) => setValue(e.target.value)}/>
+// }
 
 export default {
   title: 'Input',

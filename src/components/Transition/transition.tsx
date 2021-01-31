@@ -8,7 +8,7 @@ interface BaseTransitionProps {
   wrapper?: boolean, // 解决transition之间的冲突, 添加后 父与子相安
 }
 
-type TransitionProps = BaseTransitionProps & CSSTransitionProps;
+export type TransitionProps = BaseTransitionProps & CSSTransitionProps;
 
 const Transition: FC<TransitionProps> = (props) => {
   const {

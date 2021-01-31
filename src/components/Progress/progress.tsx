@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { ThemeProps } from "../Icon/icon";
 
-interface IProgressProps {
+export interface IProgressProps {
   percent: number;
   strokeHeight?: number;
   showText?: boolean;

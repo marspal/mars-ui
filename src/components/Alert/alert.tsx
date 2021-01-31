@@ -5,14 +5,14 @@ import Transition from "../Transition/transition";
 
 export type AlertType = 'success' | 'info' | 'danger' | 'warning';
 
-interface AlertProps extends HTMLAttributes<HTMLElement>{
+export interface IAlertProps extends HTMLAttributes<HTMLElement>{
   type?: AlertType;
   title?: string; // string 组件是一个ReactElement组件吗
   message: string;
   showClose?: boolean;
 }
 
-export const Alert: FC<AlertProps> = (props) => {
+export const Alert: FC<IAlertProps> = (props) => {
   const {
     type,
     title,
