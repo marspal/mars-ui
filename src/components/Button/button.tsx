@@ -25,7 +25,7 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
  * Button组件库
  * import {Button} from 'sparksharing'
 */
-export const Button: FC<ButtonProps> = (props: ButtonProps) => {
+export const Button: FC<ButtonProps> = (props) => {
   const {
     className,
     disabled,

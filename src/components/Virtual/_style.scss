@@ -1,0 +1,27 @@
+.virtual-container {
+  height: 300px;
+  overflow: auto;
+  position: relative;
+  .virtual-phantom {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+  .virtual-list {
+    left: 0;
+    top: 0;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    .virtual-list-item {
+      padding: 10px;
+      color: #fff;
+      box-sizing: border-box;
+      border-bottom: 1px solid #999;
+      background-color: #555;
+      height: 30px;
+    }
+  }
+}
