@@ -1,27 +1,27 @@
+@mixin virtual-position() {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+}
 .virtual-container {
-  height: 300px;
   overflow: auto;
   position: relative;
   .virtual-phantom {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    z-index: 1;
+    @include virtual-position();
+    z-index: -1;
   }
   .virtual-list {
-    left: 0;
-    top: 0;
-    right: 0;
-    position: absolute;
-    text-align: center;
-    .virtual-list-item {
-      padding: 10px;
-      color: #fff;
+    @include virtual-position();
+    padding: 0;
+    .virtual-item {
+      list-style: none;
       box-sizing: border-box;
-      border-bottom: 1px solid #999;
-      background-color: #555;
-      height: 30px;
+      cursor: pointer;
+      &:hover {
+        background-color: $primary;
+        color: $gray-100;
+      }
     }
   }
 }
