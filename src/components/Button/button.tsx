@@ -22,8 +22,7 @@ type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>;
 // Partial 设置可选
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>;
 /**
- * Button组件库
- * import {Button} from 'sparksharing'
+ * 使用方式: import {Button} from 'mars-ui-pro'
 */
 export const Button: FC<ButtonProps> = (props) => {
   const {

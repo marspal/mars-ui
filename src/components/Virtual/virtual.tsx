@@ -9,16 +9,19 @@ import React, {
   ReactElement
 } from 'react';
 import classnames from 'classnames';
+
 interface DataSourceObject {
   value: string
 }
 
+// todo 新增item动态高度
 export type DataSourceType<T = {}> = T & DataSourceObject;
 export interface IVirtualProps {
   style?: CSSProperties;
   className?: string;
   screenHeight: number;
   itemSize: number;
+  estimatedItemSize: number;
   data?: DataSourceType[];
   bufferScale?: number;
   onSelect?: (item: DataSourceType) => void;
@@ -38,7 +41,7 @@ export const Virtual: FC<IVirtualProps> = props => {
   } = props;
 
   let virtualContainerRef = useRef<HTMLDivElement>(null);
-  let [visibleData, setVisibleData] = useState<any[]>([]);
+  let [visibleData, setVisibleData] = useState<DataSourceType[]>([]);
   let [contentHeight, setContentHeight] = useState<number>(0);
   let [startOffset, setStartOffset] = useState<number>(0);
   // css样式处理
